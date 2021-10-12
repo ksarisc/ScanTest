@@ -2,38 +2,16 @@
 // for details on configuring this project to bundle and minify static web assets.
 
 // Write your JavaScript code.
-function SetupScanner() { //button, preview, textbox) {
+async function SetupScanner() { //button, preview, textbox) {
 	const resultInput = document.getElementById("textScanResult");
 	const messageElem = document.getElementById("messageArea");
 
 	const previewElem = document.getElementById("scanPreviewArea");
-		//("string" === typeof preview) ?
-		//document.querySelector(preview) : preview;
-	// '#test-area-qr-code-webcam > video'
-
-	//const textboxElem = ("string" === typeof textbox) ?
-	//	document.querySelector(textbox) : textbox;
-	//function decodeFromVideo(result, error, controls) {
-	//	console.log("\t\tRESULTS");
-	//	console.log({ "result": result, "error": error, "controls": controls });
-	//	// use the result and error values to choose your actions
-	//	// you can also use controls API in this scope like the controls
-	//	// returned from the method.
-	//	textboxElem.value = result;
-	//} // END decodeFromVideo
 
 	const codeReader = new BrowserQRCodeReader();
 	const videoInputDevices = await ZXingBrowser.BrowserCodeReader.listVideoInputDevices();
 	// choose your media device (webcam, frontal camera, back camera, etc.)
 	const selectedDeviceId = videoInputDevices[0].deviceId;
-
-	//const controls = await codeReader.decodeFromVideoDevice(selectedDeviceId, previewElem, decodeFromVideo);
-	//console.log(`Started decode from camera with id ${selectedDeviceId}`);
-
-	//setTimeout(function clearScanner() {
-	//	//if (!controls.stopped)
-	//	controls.stop();
-	//}, 10000);
 
 	// override onclick
 	function handleScan(result) {
